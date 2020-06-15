@@ -58,6 +58,7 @@ const tomato = new Fruit({
 Fruit.find(function (err, fruits) {
   fruits.forEach(function (fruit) {
     console.log(fruit.name);
+    mongoose.connection.close()
   })
 })
 
