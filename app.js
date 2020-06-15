@@ -37,16 +37,23 @@ const tomato = new Fruit({
   review: "is tomato fruit or vege???"
 })
 
-Fruit.insertMany([banana, orange, tomato], function (err) {
-  if (err) {
-    console.log(err);
-  }
-  else {
-    console.log('successfully saved all fruits to the fruitsDB');
-  }
-})
+// Fruit.insertMany([banana, orange, tomato], function (err) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('successfully saved all fruits to the fruitsDB');
+//   }
+// })
 
 // fruit.save()
+
+Fruit.find(function (err, fruits) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(fruits);
+  }
+})
 
 // collection for People
 
@@ -63,15 +70,3 @@ const people = new People({
 });
 
 // people.save()
-
-const findDocuments = function (db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Find some documents
-  collection.find({}).toArray(function (err, fruits) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.log(fruits)
-    callback(fruits);
-  });
-}
