@@ -47,12 +47,18 @@ const tomato = new Fruit({
 
 // fruit.save()
 
+// Fruit.find(function (err, fruits) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(fruits);
+//   }
+// })
+
 Fruit.find(function (err, fruits) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(fruits);
-  }
+  fruits.forEach(function (fruit) {
+    console.log(fruit.name);
+  })
 })
 
 // collection for People
