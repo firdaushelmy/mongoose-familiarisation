@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/fruitsDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
+// collection for Fruits
+
 const fruitSchema = new mongoose.Schema({
   name: String,
   rating: Number,
@@ -16,8 +18,23 @@ const fruit = new Fruit({
   review: 'pretty solid for a fruit',
 });
 
-fruit.save()
+// fruit.save()
 
+// collection for People
+
+const peopleSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+});
+
+const People = mongoose.model('People', peopleSchema);
+
+const people = new People({
+  name: "John",
+  age: 37,
+});
+
+// people.save()
 
 const findDocuments = function (db, callback) {
   // Get the documents collection
