@@ -18,6 +18,34 @@ const fruit = new Fruit({
   review: 'pretty solid for a fruit',
 });
 
+
+const banana = new Fruit({
+  name: 'Banana',
+  rating: 9,
+  review: "very good for roughage"
+})
+
+const orange = new Fruit({
+  name: 'Orange',
+  rating: 7,
+  review: "must have during CNY"
+})
+
+const tomato = new Fruit({
+  name: 'tomato',
+  rating: 9,
+  review: "is tomato fruit or vege???"
+})
+
+Fruit.insertMany([banana, orange, tomato], function (err) {
+  if (err) {
+    console.log(err);
+  }
+  else {
+    console.log('successfully saved all fruits to the fruitsDB');
+  }
+})
+
 // fruit.save()
 
 // collection for People
