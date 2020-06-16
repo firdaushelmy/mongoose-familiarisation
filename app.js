@@ -86,10 +86,18 @@ const people = new People({
 // people.save()
 
 
-Fruit.updateOne({ _id: '5ee8e8d12b309818733a8ef0' }, { name: 'Peach' }, function (err) {
+// Fruit.updateOne({ _id: '5ee8e8d12b309818733a8ef0' }, { name: 'Peach' }, function (err) {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     console.log('You have successfully updated the entry')
+//   }
+// })
+
+Fruit.deleteOne({ _id: '5ee8e8d12b309818733a8ef0' }, function (err) {
   if (err) {
-    console.log(err)
+    console.log(err);
   } else {
-    console.log('You have successfully updated the entry')
+    console.log('Successfully deleted entry')
   }
 })
