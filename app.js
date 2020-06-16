@@ -19,30 +19,20 @@ const fruitSchema = new mongoose.Schema({
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
-const fruit = new Fruit({
-  name: 'peaches',
-  rating: 1,
-  review: 'pretty solid for a fruit',
-});
+// const fruit = new Fruit({
+//   name: 'peaches',
+//   rating: 1,
+//   review: 'pretty solid for a fruit',
+// });
+// fruit.save()
 
+const pineapple = new Fruit({
+  name: 'Pineapple',
+  rating: 7,
+  review: "This on pizza is the best!"
+})
 
-// const banana = new Fruit({
-//   name: 'Banana',
-//   rating: 9,
-//   review: "very good for roughage"
-// })
-
-// const orange = new Fruit({
-//   name: 'Orange',
-//   rating: 7,
-//   review: "must have during CNY"
-// })
-
-// const tomato = new Fruit({
-//   name: 'tomato',
-//   rating: 9,
-//   review: "is tomato fruit or vege???"
-// })
+// pineapple.save()
 
 // Fruit.insertMany([banana, orange, tomato], function (err) {
 //   if (err) {
@@ -51,8 +41,6 @@ const fruit = new Fruit({
 //     console.log('successfully saved all fruits to the fruitsDB');
 //   }
 // })
-
-// fruit.save()
 
 // Fruit.find(function (err, fruits) {
 //   if (err) {
@@ -74,16 +62,18 @@ Fruit.find(function (err, fruits) {
 const peopleSchema = new mongoose.Schema({
   name: String,
   age: Number,
+  favouriteFruit: fruitSchema
 });
 
 const People = mongoose.model('People', peopleSchema);
 
 const people = new People({
-  name: "John",
-  age: 37,
+  name: "Amy",
+  age: 12,
+  favouriteFruit: pineapple
 });
 
-// people.save()
+people.save()
 
 
 // Fruit.updateOne({ _id: '5ee8e8d12b309818733a8ef0' }, { name: 'Peach' }, function (err) {
@@ -94,10 +84,10 @@ const people = new People({
 //   }
 // })
 
-Fruit.deleteOne({ _id: '5ee8e8d12b309818733a8ef0' }, function (err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Successfully deleted entry')
-  }
-})
+// People.deleteMany({ name: 'Amy' }, function (err) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('Successfully deleted entry')
+//   }
+// })
