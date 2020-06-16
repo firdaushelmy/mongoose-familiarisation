@@ -52,7 +52,7 @@ const fruit = new Fruit({
 //   }
 // })
 
-fruit.save()
+// fruit.save()
 
 // Fruit.find(function (err, fruits) {
 //   if (err) {
@@ -84,3 +84,12 @@ const people = new People({
 });
 
 // people.save()
+
+
+Fruit.updateOne({ _id: '5ee8e8d12b309818733a8ef0' }, { name: 'Peach' }, function (err) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('You have successfully updated the entry')
+  }
+})
