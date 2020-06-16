@@ -6,36 +6,40 @@ mongoose.connect('mongodb://localhost:27017/fruitsDB', { useNewUrlParser: true, 
 
 const fruitSchema = new mongoose.Schema({
   name: String,
-  rating: Number,
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10,
+  },
   review: String,
 });
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
 const fruit = new Fruit({
-  name: 'Apple',
-  rating: 7,
+  name: 'Apple2',
+  rating: 34,
   review: 'pretty solid for a fruit',
 });
 
 
-const banana = new Fruit({
-  name: 'Banana',
-  rating: 9,
-  review: "very good for roughage"
-})
+// const banana = new Fruit({
+//   name: 'Banana',
+//   rating: 9,
+//   review: "very good for roughage"
+// })
 
-const orange = new Fruit({
-  name: 'Orange',
-  rating: 7,
-  review: "must have during CNY"
-})
+// const orange = new Fruit({
+//   name: 'Orange',
+//   rating: 7,
+//   review: "must have during CNY"
+// })
 
-const tomato = new Fruit({
-  name: 'tomato',
-  rating: 9,
-  review: "is tomato fruit or vege???"
-})
+// const tomato = new Fruit({
+//   name: 'tomato',
+//   rating: 9,
+//   review: "is tomato fruit or vege???"
+// })
 
 // Fruit.insertMany([banana, orange, tomato], function (err) {
 //   if (err) {
@@ -45,7 +49,7 @@ const tomato = new Fruit({
 //   }
 // })
 
-// fruit.save()
+fruit.save()
 
 // Fruit.find(function (err, fruits) {
 //   if (err) {
