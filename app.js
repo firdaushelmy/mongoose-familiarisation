@@ -7,7 +7,7 @@ mongoose.connect('mongodb://localhost:27017/fruitsDB', { useNewUrlParser: true, 
 const fruitSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: [true, 'No name specified, please check your data entry']
   },
   rating: {
     type: Number,
@@ -20,7 +20,8 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
 const fruit = new Fruit({
-  rating: 34,
+  name: 'peaches',
+  rating: 1,
   review: 'pretty solid for a fruit',
 });
 
