@@ -73,16 +73,16 @@ const people = new People({
   favouriteFruit: pineapple
 });
 
-people.save()
+// people.save()
 
 
-// Fruit.updateOne({ _id: '5ee8e8d12b309818733a8ef0' }, { name: 'Peach' }, function (err) {
-//   if (err) {
-//     console.log(err)
-//   } else {
-//     console.log('You have successfully updated the entry')
-//   }
-// })
+People.updateOne({ _id: '5ee7b7aa1bbdbd06af1304f4' }, { favouriteFruit: pineapple }, function (err) {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('You have successfully updated the entry')
+  }
+})
 
 // People.deleteMany({ name: 'Amy' }, function (err) {
 //   if (err) {
